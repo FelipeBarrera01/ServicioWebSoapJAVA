@@ -4,7 +4,7 @@
     <groupId>com.felipe.barrera</groupId>
     <artifactId>sga-jee-web-Servicios</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>sga-jee-web-Servicios</name>
     
     <properties>
