@@ -3,57 +3,55 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servicio;
+package web;
 
 import domain.Persona;
-import datos.PersonaDao;
-
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-
-import web.IPersonaServiceWs;
+import javax.jws.WebService;
+import servicio.PersonaService;
 
 /**
  *
  * @author Felipe Barrera
  */
+@WebService(endpointInterface = "web.IPersonaServiceWs")
 @Stateless
-public class PersonaServiceImpl implements  PersonaService, IPersonaServiceWs{
+public class PersonaServiceWsImpl implements IPersonaServiceWs{
 
-    
     @Inject
-    private PersonaDao personaDao;
+    private PersonaService personaService;
     
     
     @Override
     public List<Persona> listarPersonas() {
-        return personaDao.findAllPersonas();
+        return personaService.listarPersonas();
     }
 
     @Override
     public Persona econtrarPersonaPorId(Persona persona) {
-    return personaDao.findPersonaById(persona);
+        return personaService.econtrarPersonaPorId(persona);
     }
 
     @Override
     public Persona encontrarPersonaPorEmail(Persona persona) {
-      return personaDao.findPersonaByEmail(persona);
+        return personaService.encontrarPersonaPorEmail(persona);
     }
 
     @Override
     public void registrarPersona(Persona persona) {
-         personaDao.insertPersona(persona);
+        personaService.registrarPersona(persona);
     }
 
     @Override
     public void modificarPersona(Persona persona) {
-        personaDao.updatePersona(persona);
+        personaService.modificarPersona(persona);
     }
 
     @Override
     public void eliminarPersona(Persona persona) {
-        personaDao.deletePersona(persona);
+        personaService.eliminarPersona(persona);
     }
     
 }

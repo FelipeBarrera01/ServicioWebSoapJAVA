@@ -14,7 +14,7 @@ import javax.ejb.Local;
  * @author Felipe Barrera
  */
 
-@Local
+
 
 public interface PersonaService {
      public List<Persona> listarPersonas();
