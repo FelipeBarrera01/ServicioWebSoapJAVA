@@ -10,16 +10,16 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import javax.persistence.Query;
 
     
 
 @Stateless
-public class PersonaDaoImpl implements PersonaDao{
-
+public class PersonaDaoImpl  implements PersonaDao{
+    
     @PersistenceContext(unitName = "PersonaPU")
     EntityManager em;
-    
     @Override
     public List<Persona> findAllPersonas() {
         return em.createNamedQuery("Persona.findAll").getResultList();
